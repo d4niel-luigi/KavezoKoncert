@@ -2,15 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { CreateKoncertekDto } from './dto/create-koncertek.dto';
 import { UpdateKoncertekDto } from './dto/update-koncertek.dto';
 import { PrismaService } from 'src/prisma.service';
-import { create } from 'node:domain';
 
 @Injectable()
 export class KoncertekService {
   constructor(private prisma: PrismaService){}
   create(createKoncertekDto: CreateKoncertekDto) {
-    return this.prisma.koncert.create({
-      data:createKoncertekDto
-    })
+    const currentDate = new Date()
+    if(new Date(createKoncertekDto.started_at) < currentDate){
+      throw new Error('The concert date cannot be in the past')
+    }
+      return this.prisma.koncert.create({
+        data:createKoncertekDto
+      })
   }
 
   findAll() {

@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { KoncertekController } from './koncertek.controller';
 import { KoncertekService } from './koncertek.service';
-import { PrismaService } from 'src/prisma.service';
 import { PrismaClient } from '@prisma/client';
 
 describe('KoncertekController', () => {

@@ -1,6 +1,7 @@
-import { IsBoolean, IsDate, IsDateString, IsNotEmpty, IsNumber, IsString } from "class-validator"
+import { IsDateString, IsNotEmpty, IsNumber, IsString, MinDate } from "class-validator"
 
 export class CreateKoncertekDto { 
+
 
   @IsString()
   @IsNotEmpty()
@@ -13,9 +14,5 @@ export class CreateKoncertekDto {
   @IsNumber()
   @IsNotEmpty()
   lenght: number
-
-  @IsBoolean()
-  @IsNotEmpty()
-  fail: boolean
 
 }

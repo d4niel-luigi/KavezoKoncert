@@ -16,7 +16,7 @@ datasource db {
 model koncert {
   id         Int      @id @default(autoincrement())
   performer String
-  started_at DateTime
+  started_at DateTime 
   lenght Int
   fail Boolean @default(false)
 }
